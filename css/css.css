@@ -1,0 +1,260 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: #16161a;
+  font-family: "Montserrat", sans-serif;
+  color: #94a1b2;
+}
+
+body .wrapper {
+  display: -ms-grid;
+  display: grid;
+  grid-gap: 10px;
+      grid-template-areas: "sidebar  header      header" "sidebar  content     content" "space    footer_head footer_head" "contact  cards       cards";
+  color: #444;
+}
+
+body section {
+  padding: 50px;
+}
+
+body .box {
+  background-color: transparent;
+  color: #fff;
+  border-radius: 5px;
+  padding: 50px;
+  font-size: 150%;
+}
+
+body .topleft {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+body .topright {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+body .bottomleft {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+body .bottomright {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+
+body .accent {
+  color: #7f5af0;
+}
+
+.header {
+  -ms-grid-row: 1;
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 2;
+  grid-area: header;
+}
+
+.header .banner_logo {
+  float: left;
+  font-weight: 900;
+  font-size: 30px;
+}
+
+.header .menu {
+  float: right;
+  font-size: 15px;
+  color: #7f5af0;
+}
+
+.sidebar {
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 2;
+  -ms-grid-column: 1;
+  grid-area: sidebar;
+}
+
+.sidebar ul {
+  text-decoration: none;
+  text-transform: none;
+}
+
+.sidebar ul li {
+  list-style-type: none;
+  margin: 45px 5px;
+  font-size: 16px;
+  font-weight: 800;
+}
+
+.content {
+  -ms-grid-row: 2;
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 2;
+  grid-area: content;
+  position: relative;
+}
+
+.content h1 {
+  font-size: 2em;
+  text-transform: capitalize;
+  max-width: 70%;
+}
+
+.social {
+  background: #212121;
+}
+
+.social .contact {
+  -ms-grid-row: 4;
+  -ms-grid-column: 1;
+  grid-area: contact;
+  bottom: 0;
+}
+
+.social .contact ul {
+  text-decoration: none;
+  text-transform: none;
+}
+
+.social .contact ul li {
+  list-style-type: none;
+  margin: 45px 5px;
+  font-size: 16px;
+  font-weight: 800;
+}
+
+.social .cards {
+  -ms-grid-row: 4;
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 2;
+  grid-area: cards;
+}
+
+.social .cards .card_list {
+  margin-top: 70px;
+  display: -ms-grid;
+  display: grid;
+  grid-gap: 1em;
+  -ms-grid-columns: (auto)[3];
+      grid-template-columns: repeat(3, auto);
+}
+
+.social .cards img {
+  background: #7f5af0;
+  border-radius: 100%;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-bottom: 50px;
+}
+
+.social .cards .card {
+  display: inline-block;
+  background: #242629;
+  max-width: 17vw;
+  padding: 15px;
+  margin: 5px;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.social .cards .card .card-title {
+  font-size: 1.8em;
+}
+
+.social .cards .card .card-text {
+  font-size: 0.65em;
+  padding-bottom: 15px;
+  color: #94a1b2;
+  text-align: left;
+}
+
+.social .cards .card .card-text .title {
+  font-size: 1.2em;
+  margin-bottom: 10px;
+  font-weight: 600;
+  color: #fffffe;
+}
+
+.social .space {
+  -ms-grid-row: 3;
+  -ms-grid-column: 1;
+  grid-area: space;
+}
+
+.social .footer_head {
+  -ms-grid-row: 3;
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 2;
+  grid-area: footer_head;
+}
+
+.social .footer_head h2 {
+  font-size: 1.4em;
+  margin: 40px 20px;
+  max-width: 70%;
+  line-height: 70px;
+}
+
+.social .footer_head a {
+  text-decoration: none;
+  font-size: 0.8em;
+  margin: 25px;
+  color: #7f5af0;
+}
+
+.social .footer {
+  color: #444;
+  background: #212121 !important;
+  grid-area: footer;
+}
+
+.desgDev {
+  margin-top: 70px;
+}
+
+.desgDev .nodes {
+  font-size: 18px;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  padding: 40px;
+}
+
+.desgDev .nodes ._head {
+  color: #fffffe;
+  margin-right: 25px;
+  min-width: 30%;
+  font-weight: 900;
+  text-transform: capitalize;
+}
+
+.desgDev .nodes ._body {
+  color: #94a1b2;
+  line-height: 25px;
+}
+
+.desgDev .nodes:hover {
+  background: #fffffe;
+  border-radius: 5px;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.desgDev .nodes:hover ._head {
+  color: #16161a;
+}
+
+.desgDev .nodes:hover ._body {
+  color: #16161a;
+}
+/*# sourceMappingURL=css.css.map */
