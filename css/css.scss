@@ -1,6 +1,7 @@
-$bg: #16161a;
-$accent: #7f5af0;
-$cardBG: #242629;
+$bg: #232323;
+$accent: #ff8906;
+$cardBG: #151515;
+$social: #121212;
 $headline: #fffffe;
 $cardHeadline: #fffffe;
 $cardText: #fffffe;
@@ -10,30 +11,53 @@ $text: #94a1b2;
   margin: 0;
   padding: 0;
 }
+
 body {
   background: $bg;
   font-family: "Montserrat", sans-serif;
   color: $text;
+
+  .general {
+    display: grid;
+    grid-gap: 10px;
+    grid-template-areas: "sidebar globalContent" "bottomNav bottomNav";
+  }
+
+  .topNav {
+    grid-area: topNav;
+  }
+
+  .bottomNav {
+    grid-area: bottomNav;
+  }
+
+  .globalContent {
+    grid-area: globalContent;
+  }
+
   .wrapper {
     display: grid;
     grid-gap: 10px;
-    grid-template-areas:
-      "sidebar  header      header"
-      "sidebar  content     content"
-      "space    footer_head footer_head"
-      "contact  cards       cards";
-    color: #444;
+    grid-template-areas: "header  header" "content  content" "space footer_head" "cards cards";
+    color: $cardBG;
   }
-  section{
+
+  .accent {
+    color: $accent;
+  }
+
+  section {
     padding: 50px;
   }
+
   .box {
     background-color: transparent;
     color: #fff;
     border-radius: 5px;
-    padding: 50px;
+    padding: 0 50px;
     font-size: 150%;
   }
+
   .topleft {
     position: absolute;
     top: 0;
@@ -57,27 +81,46 @@ body {
     bottom: 0;
     right: 0;
   }
+
   .accent {
     color: $accent;
   }
-  
+
+  .sidebar , .sidebarBottom {
+    width: 15vw;
+  }
+
 }
 
 .header {
   grid-area: header;
+
   .banner_logo {
     float: left;
     font-weight: 900;
     font-size: 30px;
   }
+
   .menu {
     float: right;
     font-size: 15px;
+  }
+
+  .btn {
     color: $accent;
+    border: 2px solid $accent;
+    background: transparent;
+    padding: 10px;
+    border-radius: 5px;
   }
 }
+
 .sidebar {
   grid-area: sidebar;
+  grid-template-rows: repeat(12, 1fr);
+  position: sticky;
+  top: 0;
+  height: 100vh;
   ul {
     text-decoration: none;
     text-transform: none;
@@ -89,40 +132,48 @@ body {
     }
   }
 }
+
 .content {
   grid-area: content;
-  position: relative;
-  h1{
+  padding-top: 0px !important;
+  h1 {
     font-size: 2em;
     text-transform: capitalize;
-    max-width: 70%;
+    max-width: 80%;
   }
 }
 
 .social {
-  background: #212121;
+  display: grid;
+  grid-gap: 10px;
+  grid-template-areas: "space footer_head" "sidebarBottom cards";
+  background: $social;
+  min-height: 100vh;
   .contact {
     grid-area: contact;
     bottom: 0;
-    ul {
-      text-decoration: none;
-      text-transform: none;
-      li {
-        list-style-type: none;
-        margin: 45px 5px;
-        font-size: 16px;
-        font-weight: 800;
-      }
+  }
+  ul {
+    text-decoration: none;
+    text-transform: none;
+
+    li {
+      list-style-type: none;
+      margin: 45px 5px;
+      font-size: 16px;
+      font-weight: 800;
     }
   }
   .cards {
     grid-area: cards;
+
     .card_list {
       margin-top: 70px;
       display: grid;
       grid-gap: 1em;
-      grid-template-columns: repeat(3,auto);
+      grid-template-columns: repeat(3, auto);
     }
+
     img {
       background: $accent;
       border-radius: 100%;
@@ -138,14 +189,17 @@ body {
       margin: 5px;
       border-radius: 5px;
       text-align: center;
+
       .card-title {
         font-size: 1.8em;
       }
+
       .card-text {
         font-size: 0.65em;
         padding-bottom: 15px;
         color: $text;
         text-align: left;
+
         .title {
           font-size: 1.2em;
           margin-bottom: 10px;
@@ -158,14 +212,20 @@ body {
   .space {
     grid-area: space;
   }
+  .sidebarBottom {
+    grid-area: sidebarBottom;
+  }
   .footer_head {
     grid-area: footer_head;
+    height: 200px;
+
     h2 {
       font-size: 1.4em;
       margin: 40px 20px;
       max-width: 70%;
       line-height: 70px;
     }
+
     a {
       text-decoration: none;
       font-size: 0.8em;
@@ -175,38 +235,91 @@ body {
   }
   .footer {
     color: #444;
-    background: #212121 !important;
+    background: $bg;
     grid-area: footer;
   }
 }
 
-.desgDev{
-  margin-top: 70px;
-  .nodes{
-    font-size: 18px;
-    display: inline-flex;
+.desgDev {
+  margin-top: 30px;
+  .nodes {
     padding: 40px;
-    ._head{
-        color: $cardText;
-        margin-right: 25px;
-        min-width: 30%;
-        font-weight: 900;
-        text-transform: capitalize;
+    display: grid;
+    grid-gap: 10px;
+    grid-template-areas: "_head " " _body";
+    ._head {
+      color: $cardText;
+      font-weight: 900;
+      text-transform: capitalize;
+      width: 20vw;
     }
-    ._body{
-        color: $text;
-        line-height: 25px;
-    }
-  }
-  .nodes:hover{
-    background: $cardText;
-    border-radius: 5px;     
-    transition: 0.3s;
-    ._head{
-      color: $bg ;
-    }
-    ._body{
-      color: $bg ;
+    ._body {
+      color: $text;
+      line-height: 25px;
+      max-width: 70vh;
+      font-size: 0.8em;
     }
   }
+  .nodes:hover {
+    background: $accent;
+    border-radius: 5px;
+    transition: 0.4s;
+    width: 40vw;
+    ._head {
+      color: $bg;
+    }
+    ._body {
+      color: $bg;
+    }
+  }
+}
+
+.skills {
+  margin-top: 2em;
+  .skillsHeader {
+  }
+  .skillsCards {
+    display: grid;
+    grid-gap: 10px;
+    grid-template-areas: "left  right";
+
+    .left {
+      grid-area: left;
+    }
+
+    .right {
+      grid-area: right;
+      padding-top: 50px;
+    }
+
+    .card {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 15px;
+      border-radius: 10px;
+
+      .card-img {
+        img {
+          height: auto;
+          width: 100%;
+          min-height: 25vh;
+          border-radius: 1px;
+          filter: blur(0.85px);
+        }
+      }
+
+      .card-text {
+        padding: 10px;
+        position: absolute;
+        align-content: center;
+        align-items: center;
+        text-align: center;
+        font-weight: bold;
+        border-radius: 5px;
+        background: rgba(255, 137, 6, 0.58);
+      }
+    }
+  }
+
 }
